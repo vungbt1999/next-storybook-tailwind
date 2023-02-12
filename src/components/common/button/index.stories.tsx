@@ -11,6 +11,3 @@ const Template: ComponentStory<typeof Button> = (args: ButtonProps) => <Button {
 
 export const Default = Template.bind({});
 Default.args = { children: 'Get in touch' };
-
-export const Outline = Template.bind({});
-Outline.args = { children: 'Get in touch', variant: 'outline' };

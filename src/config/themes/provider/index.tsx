@@ -6,6 +6,7 @@ export const getStyle = (themeConfig: ThemeConfig) => {
     // Primary Color
     '--color-primary': themeConfig.colors.primary.default,
     '--color-primary-100': themeConfig.colors.primary._100,
+    '--color-primary-200': themeConfig.colors.primary._200,
     '--color-primary-300': themeConfig.colors.primary._300,
     '--color-primary-400': themeConfig.colors.primary._400,
     '--color-primary-500': themeConfig.colors.primary._500,
@@ -15,6 +16,7 @@ export const getStyle = (themeConfig: ThemeConfig) => {
     // Neutral Color
     '--color-neutral': themeConfig.colors.neutral.default,
     '--color-neutral-100': themeConfig.colors.neutral._100,
+    '--color-neutral-200': themeConfig.colors.neutral._200,
     '--color-neutral-300': themeConfig.colors.neutral._300,
     '--color-neutral-400': themeConfig.colors.neutral._400,
     '--color-neutral-500': themeConfig.colors.neutral._500,
@@ -25,6 +27,7 @@ export const getStyle = (themeConfig: ThemeConfig) => {
     // Success
     '--color-success': themeConfig.colors.success.default,
     '--color-success-100': themeConfig.colors.success._100,
+    '--color-success-200': themeConfig.colors.success._200,
     '--color-success-300': themeConfig.colors.success._300,
     '--color-success-400': themeConfig.colors.success._400,
     '--color-success-500': themeConfig.colors.success._500,
@@ -34,6 +37,7 @@ export const getStyle = (themeConfig: ThemeConfig) => {
     // Warning
     '--color-warning': themeConfig.colors.warning.default,
     '--color-warning-100': themeConfig.colors.warning._100,
+    '--color-warning-200': themeConfig.colors.warning._200,
     '--color-warning-300': themeConfig.colors.warning._300,
     '--color-warning-400': themeConfig.colors.warning._400,
     '--color-warning-500': themeConfig.colors.warning._500,
@@ -43,6 +47,7 @@ export const getStyle = (themeConfig: ThemeConfig) => {
     // Danger
     '--color-danger': themeConfig.colors.danger.default,
     '--color-danger-100': themeConfig.colors.danger._100,
+    '--color-danger-200': themeConfig.colors.danger._200,
     '--color-danger-300': themeConfig.colors.danger._300,
     '--color-danger-400': themeConfig.colors.danger._400,
     '--color-danger-500': themeConfig.colors.danger._500,
@@ -52,6 +57,7 @@ export const getStyle = (themeConfig: ThemeConfig) => {
     // Information
     '--color-info': themeConfig.colors.info.default,
     '--color-info-100': themeConfig.colors.info._100,
+    '--color-info-200': themeConfig.colors.info._200,
     '--color-info-300': themeConfig.colors.info._300,
     '--color-info-400': themeConfig.colors.info._400,
     '--color-info-500': themeConfig.colors.info._500,
@@ -61,6 +67,7 @@ export const getStyle = (themeConfig: ThemeConfig) => {
     // Gray
     '--color-gray': themeConfig.colors.gray.default,
     '--color-gray-100': themeConfig.colors.gray._100,
+    '--color-gray-200': themeConfig.colors.gray._200,
     '--color-gray-300': themeConfig.colors.gray._300,
     '--color-gray-400': themeConfig.colors.gray._400,
     '--color-gray-500': themeConfig.colors.gray._500,

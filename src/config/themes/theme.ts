@@ -53,6 +53,8 @@ export const themeConfig: ThemeConfig = {
     },
     gray: {
       default: '#101828',
+      _200: '#EAECF0',
+      _300: '#D0D5DD',
       _400: '#98A2B3',
       _500: '#667085',
       _600: '#475467',

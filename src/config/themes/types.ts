@@ -21,6 +21,7 @@ export type ColorPalette = {
 export type ColorPaletteConfig = {
   default: string;
   _100?: string;
+  _200?: string;
   _300?: string;
   _400?: string;
   _500?: string;

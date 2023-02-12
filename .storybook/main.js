@@ -1,5 +1,7 @@
+const path = require('path');
+
 module.exports = {
-  stories: ["../src/libraries/**/*.stories.mdx", "../src/libraries/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -13,6 +15,15 @@ module.exports = {
       },
     },
   ],
+  webpackFinal: async (config) => {
+    console.log('config:', path.resolve(__dirname, '../src/'))
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.resolve(__dirname, '../src/')
+    };
+
+    return config;
+  },
   framework: "@storybook/react",
   core: {
     builder: "@storybook/builder-webpack5",
