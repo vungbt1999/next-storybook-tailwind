@@ -35,3 +35,5 @@ export type SocialType = {
 };
 
 export type TargetType = '_blank' | '_self' | '_parent' | '_top';
+
+export type StyleVariant = 'style_1' | 'style_2';

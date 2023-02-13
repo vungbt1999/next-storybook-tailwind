@@ -10,10 +10,12 @@ export type NavigateItemType = {
 };
 
 export type HeaderProps = {
-  items: NavigateItemType[];
+  navigation: NavigateItemType[];
+  logoUrl?: string;
+  ctaButtonLink: LinkObj;
 };
 
-export function Header({ items }: HeaderProps) {
+export function Header({ navigation, logoUrl = '/', ctaButtonLink }: HeaderProps) {
   const [isScroll, setIsScroll] = useState<boolean>(false);
 
   const listenScrollEvent = () => {
@@ -30,6 +32,7 @@ export function Header({ items }: HeaderProps) {
 
   return (
     <div
+      layout-name="header-layout"
       id="header-layout"
       className="w-screen h-94 fixed transition-all top-0 z-50"
       style={
@@ -43,9 +46,11 @@ export function Header({ items }: HeaderProps) {
       }
     >
       <div className="container h-full flex items-center justify-between">
-        <Logo />
+        <Link href={logoUrl}>
+          <Logo />
+        </Link>
         <ul className="flex items-center">
-          {items.map((nav, index) => {
+          {navigation.map((nav, index) => {
             const item = nav.item;
             return (
               <Link
@@ -57,7 +62,7 @@ export function Header({ items }: HeaderProps) {
                 <li className="flex items-center text-md-medium font-primary text-neutral-900">
                   {item.title}
                   {nav.child && nav.child.length > 0 && (
-                    <RenderIcon name="chevron" className="w-9 h-[4.3px] text-info-900 ml-8" />
+                    <RenderIcon name="chevron" className="!w-9 !h-[4.3px] text-info-900 ml-8" />
                   )}
                 </li>
               </Link>
@@ -65,7 +70,7 @@ export function Header({ items }: HeaderProps) {
           })}
         </ul>
         <Button className="!px-48 !text-md-bold !rounded" color="danger">
-          Build on DOS
+          {ctaButtonLink.title}
         </Button>
       </div>
     </div>

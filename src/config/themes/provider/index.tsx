@@ -66,6 +66,7 @@ export const getStyle = (themeConfig: ThemeConfig) => {
     '--color-info-900': themeConfig.colors.info._900,
     // Gray
     '--color-gray': themeConfig.colors.gray.default,
+    '--color-gray-50': themeConfig.colors.gray._50,
     '--color-gray-100': themeConfig.colors.gray._100,
     '--color-gray-200': themeConfig.colors.gray._200,
     '--color-gray-300': themeConfig.colors.gray._300,

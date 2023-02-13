@@ -5,11 +5,13 @@ export type ButtonProps = {
   className?: string;
   variant?: 'default' | 'outline';
   color?: 'default' | 'danger';
-  size?: 'lg' | '2xl';
+  size?: 'lg' | '2xl' | 'xl';
 
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
   ariaLabel?: string;
+
+  onClick?: () => void;
 };
 
 export function Button({
@@ -20,12 +22,16 @@ export function Button({
   size = '2xl',
   disabled,
   type,
-  ariaLabel
+  ariaLabel,
+
+  onClick
 }: ButtonProps) {
   return (
     <button
+      common-name="button"
       type={type}
       disabled={disabled}
+      onClick={onClick}
       className={clsx(
         className,
         'rounded-lg border-solid font-primary shadow-xs transition-all ease-linear',
@@ -33,6 +39,7 @@ export function Button({
           // SIZE
           'py-16 px-36 text-lg-semibold': size === '2xl',
           'py-10 px-18 text-md-semibold': size === 'lg',
+          'py-12 px-20 text-md-bold': size === 'xl',
 
           // NORMAL STYLE
           'bg-white text-button hover:bg-danger-100': variant === 'default' && color === 'default',

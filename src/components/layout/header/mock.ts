@@ -1,7 +1,7 @@
 import { HeaderProps } from '.';
 
 export const headerMockData: HeaderProps = {
-  items: [
+  navigation: [
     {
       item: {
         id: '1',
@@ -44,5 +44,9 @@ export const headerMockData: HeaderProps = {
         url: '/'
       }
     }
-  ]
+  ],
+  ctaButtonLink: {
+    title: 'Build on DOS',
+    url: '/'
+  }
 };

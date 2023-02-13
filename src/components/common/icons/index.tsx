@@ -1,9 +1,12 @@
 import { CSSProperties, FC } from 'react';
+import ArrowUp from './arrow-up';
 import { Chevron } from './chevron';
 import Facebook from './facebook';
 import Git from './git';
 import LinkIn from './link-in';
+import Next from './next';
 import PeaceHand from './peace-hand';
+import Previous from './previous';
 import Twitter from './twitter';
 
 export type IconProps = {
@@ -14,7 +17,16 @@ export type IconProps = {
 
 export type Icon = FC<IconProps>;
 
-export type IconName = 'chevron' | 'facebook' | 'git' | 'linkIn' | 'peaceHand' | 'twitter';
+export type IconName =
+  | 'chevron'
+  | 'facebook'
+  | 'git'
+  | 'linkIn'
+  | 'peaceHand'
+  | 'twitter'
+  | 'arrowUp'
+  | 'previous'
+  | 'next';
 
 export type IconsType = Record<IconName, Icon>;
 
@@ -36,6 +48,15 @@ export const Icons: IconsType = {
   },
   twitter: (props: IconProps) => {
     return <Twitter {...props} />;
+  },
+  arrowUp: (props: IconProps) => {
+    return <ArrowUp {...props} />;
+  },
+  previous: (props: IconProps) => {
+    return <Previous {...props} />;
+  },
+  next: (props: IconProps) => {
+    return <Next {...props} />;
   }
 };
 

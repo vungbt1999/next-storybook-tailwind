@@ -26,7 +26,10 @@ export function Footer({
   subscribeForm
 }: FooterProps) {
   return (
-    <div className="py-48 border-t-[5px] border-solid border-danger-500">
+    <div
+      layout-name="footer-layout"
+      className="py-48 border-t-[5px] border-solid border-danger-500"
+    >
       <div className="container px-52">
         <FooterSubscribeForm {...subscribeForm} />
       </div>
