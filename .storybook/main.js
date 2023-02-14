@@ -16,7 +16,6 @@ module.exports = {
     },
   ],
   webpackFinal: async (config) => {
-    console.log('config:', path.resolve(__dirname, '../src/'))
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': path.resolve(__dirname, '../src/')

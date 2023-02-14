@@ -5,6 +5,7 @@ import React from 'react';
 export * from './mock';
 
 export type BlockOneProps = {
+  id?: string;
   title: string;
   summary: string;
   ctaButtonLinks: LinkObj[];
@@ -13,6 +14,7 @@ export type BlockOneProps = {
 };
 
 export function BlockOne({
+  id,
   title,
   summary,
   ctaButtonLinks,
@@ -20,7 +22,7 @@ export function BlockOne({
   className
 }: BlockOneProps) {
   return (
-    <div block-name="block-one" className={clsx('py-64', className)}>
+    <div id={id} block-name="block-one" className={clsx('py-64', className)}>
       <div className="container">
         <div
           dangerouslySetInnerHTML={{ __html: title }}
@@ -29,9 +31,10 @@ export function BlockOne({
 
         <div className="grid grid-cols-12 gap-24 mt-24">
           <p className="col-span-3"></p>
-          <p className="font-primary text-summary text-xl-regular text-center col-span-6">
-            {summary}
-          </p>
+          <div
+            className="font-primary text-summary text-xl-regular text-center col-span-6"
+            dangerouslySetInnerHTML={{ __html: summary }}
+          />
           <p className="col-span-3"></p>
         </div>
 

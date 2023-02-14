@@ -1,0 +1,27 @@
+fragment Image on UploadFileEntityResponse {
+  data {
+    id
+    attributes {
+      formats
+      url
+      alternativeText
+      mime
+      height
+      width
+    }
+  }
+}
+
+fragment Images on UploadFileRelationResponseCollection {
+  data {
+    id
+    attributes {
+      formats
+      url
+      alternativeText
+      mime
+      height
+      width
+    }
+  }
+}

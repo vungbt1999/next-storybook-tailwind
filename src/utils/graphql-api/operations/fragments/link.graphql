@@ -1,0 +1,6 @@
+fragment Link on ComponentSharedLink {
+  id
+  title
+  url
+  target
+}
