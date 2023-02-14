@@ -16,10 +16,12 @@ export type BlockSevenProps = {
     date: string;
   }[];
   ctaButtonLink?: LinkObj;
+  id?: string;
 };
 
 export function BlockSeven({
   className,
+  id,
   title,
   subtitle,
   summary,
@@ -28,13 +30,19 @@ export function BlockSeven({
   items
 }: BlockSevenProps) {
   return (
-    <div block-name="block-seven" className={clsx(className, 'container pb-96')}>
-      <p className="font-primary text-button text-md-semibold text-center">{subtitle}</p>
+    <div id={id} block-name="block-seven" className={clsx(className, 'container pb-96')}>
+      <div
+        className="font-primary text-button text-md-semibold text-center"
+        dangerouslySetInnerHTML={{ __html: subtitle }}
+      />
       <div
         dangerouslySetInnerHTML={{ __html: title }}
         className="mt-12 text-display-md-semibold text-gray-900 font-primary text-center"
       />
-      <p className="mt-20 font-primary text-xl-regular text-gray-600 text-center">{summary}</p>
+      <div
+        className="mt-20 font-primary text-xl-regular text-gray-600 text-center"
+        dangerouslySetInnerHTML={{ __html: summary }}
+      />
 
       <div className="mt-64 container grid grid-cols-3 gap-32 px-0">
         {items.map((item, index) => {

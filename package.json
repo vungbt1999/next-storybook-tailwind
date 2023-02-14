@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "yarn watch:graphql & next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"./src/**/*.{ts,tsx,json,css,scss,less}\" --config ./.prettierrc",
     "storybook": "start-storybook -p 6006",
-    "build:storybook": "build-storybook"
+    "build:storybook": "build-storybook",
+    "gen:graphql": "DOTENV_CONFIG_PATH=.env.production graphql-codegen --require dotenv/config --config codegen.ts",
+    "watch:graphql": "graphql-codegen --require dotenv/config --config codegen.ts --watch"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^13.1.6",

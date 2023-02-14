@@ -1,0 +1,11 @@
+fragment SEO on ComponentSharedSeo {
+  metaTitle
+  metaDescription
+  keywords
+  metaRobots
+  metaViewport
+  canonicalURL
+  metaImage {
+    ...Image
+  }
+}

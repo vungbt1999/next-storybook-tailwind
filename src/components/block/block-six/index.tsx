@@ -3,16 +3,17 @@ import { Button, RenderIcon } from '@/components/common';
 import { ImageObj, LinkObj } from '@/types';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { MutableRefObject, useRef } from 'react';
-export * from './mock';
-import { Pagination, FreeMode, Navigation } from 'swiper';
+import { useRef } from 'react';
+import { FreeMode, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+export * from './mock';
 
 export type BlockSixProps = {
   className?: string;
   title: string;
   summary: string;
   ctaButtonLink: LinkObj;
+  id?: string;
 
   items: {
     image: ImageObj;
@@ -27,6 +28,7 @@ export function BlockSix({
   title,
   summary,
   ctaButtonLink,
+  id,
 
   items
 }: BlockSixProps) {
@@ -34,11 +36,17 @@ export function BlockSix({
   const navigationNextRef = useRef(null);
 
   return (
-    <div block-name="block-six" className={clsx(className, 'bg-gray-50 py-96')}>
+    <div id={id} block-name="block-six" className={clsx(className, 'bg-gray-50 py-96')}>
       <div className="container flex justify-between items-start">
         <div className="flex-1">
-          <p className="text-display-md-semibold text-gray-900 font-primary">{title}</p>
-          <p className="mt-20 font-primary text-xl-regular text-gray-600">{summary}</p>
+          <div
+            className="text-display-md-semibold text-gray-900 font-primary"
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
+          <div
+            className="mt-20 font-primary text-xl-regular text-gray-600"
+            dangerouslySetInnerHTML={{ __html: summary }}
+          />
         </div>
 
         <Link href={ctaButtonLink.url} target={ctaButtonLink.target}>
@@ -85,12 +93,14 @@ export function BlockSix({
                   />
                 </div>
                 <div className="px-24 mt-32">
-                  <p className="line-clamp-1 text-display-xs-semibold text-gray-900 font-primary">
-                    {title}
-                  </p>
-                  <p className="line-clamp-2 mt-8 font-primary text-md-regular text-gray-600">
-                    {summary}
-                  </p>
+                  <div
+                    className="line-clamp-1 text-display-xs-semibold text-gray-900 font-primary"
+                    dangerouslySetInnerHTML={{ __html: title }}
+                  />
+                  <div
+                    className="line-clamp-2 mt-8 font-primary text-md-regular text-gray-600"
+                    dangerouslySetInnerHTML={{ __html: summary }}
+                  />
                   <Link
                     href={item.ctaButtonLink.url}
                     target={item.ctaButtonLink.target}

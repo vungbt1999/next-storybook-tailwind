@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { Button, Logo, RenderIcon } from '@/components/common';
-import { LinkObj } from '@/types';
+import { ImageObj, LinkObj } from '@/types';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 export * from './mock';
@@ -12,10 +13,11 @@ export type NavigateItemType = {
 export type HeaderProps = {
   navigation: NavigateItemType[];
   logoUrl?: string;
+  logo?: ImageObj;
   ctaButtonLink: LinkObj;
 };
 
-export function Header({ navigation, logoUrl = '/', ctaButtonLink }: HeaderProps) {
+export function Header({ navigation, logoUrl = '/', ctaButtonLink, logo }: HeaderProps) {
   const [isScroll, setIsScroll] = useState<boolean>(false);
 
   const listenScrollEvent = () => {
@@ -47,7 +49,11 @@ export function Header({ navigation, logoUrl = '/', ctaButtonLink }: HeaderProps
     >
       <div className="container h-full flex items-center justify-between">
         <Link href={logoUrl}>
-          <Logo />
+          {logo ? (
+            <img src={logo.url} alt={logo.alternativeText || 'logo'} className="w-64 h-64" />
+          ) : (
+            <Logo />
+          )}
         </Link>
         <ul className="flex items-center">
           {navigation.map((nav, index) => {

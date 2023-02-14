@@ -1,0 +1,40 @@
+query getPage($id: ID) {
+  page(id: $id) {
+    data {
+      attributes {
+        slug
+        name
+        backgroundImage {
+          ...Image
+        }
+        blocks {
+          __typename
+          ... on ComponentBlocksOne {
+            ...BlockOne
+          }
+          ... on ComponentBlocksTwo {
+            ...BlockTwo
+          }
+          ... on ComponentBlocksThree {
+            ...BlockThree
+          }
+          ... on ComponentBlocksFour {
+            ...BlockFour
+          }
+          ... on ComponentBlocksFive {
+            ...BlockFive
+          }
+          ... on ComponentBlocksSix {
+            ...BlockSix
+          }
+          ... on ComponentBlocksSeven {
+            ...BlockSeven
+          }
+        }
+        seo {
+          ...SEO
+        }
+      }
+    }
+  }
+}

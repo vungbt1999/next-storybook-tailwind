@@ -1,0 +1,51 @@
+query getSetting {
+  setting {
+    data {
+      attributes {
+        siteName
+        logoUrl
+        logo {
+          ...Image
+        }
+        header {
+          navigation {
+            id
+            title
+            links {
+              ...Link
+            }
+          }
+          ctaButtonLink {
+            ...Link
+          }
+        }
+        footer {
+          title
+          subscribe {
+            title
+            summary
+            inputPlaceholder
+            ctaButtonText
+          }
+          social {
+            id
+            socialType
+            link {
+              ...Link
+            }
+          }
+          navigation {
+            title
+            links {
+              ...Link
+            }
+          }
+          copyright
+        }
+        seo {
+          ...SEO
+        }
+      }
+    }
+  }
+}

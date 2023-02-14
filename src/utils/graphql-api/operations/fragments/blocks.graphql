@@ -1,0 +1,114 @@
+fragment BlockOne on ComponentBlocksOne {
+  id
+  idHashtag
+  title
+  summary
+  iframeEmbed
+  ctaButtonBlockOne: ctaButtonLink {
+    ...Link
+  }
+}
+
+fragment BlockTwo on ComponentBlocksTwo {
+  id
+  idHashtag
+  title
+  itemsBlockTwo: items {
+    id
+    image {
+      ...Image
+    }
+    url
+    target
+  }
+}
+
+fragment BlockThree on ComponentBlocksThree {
+  id
+  idHashtag
+  title
+  summary
+  itemsBlockThree: items {
+    id
+    title
+    summary
+    ctaButtonLink {
+      ...Link
+    }
+    image {
+      ...Image
+    }
+    styleVariant
+  }
+}
+
+fragment BlockFour on ComponentBlocksFour {
+  id
+  idHashtag
+  title
+  summary
+  items {
+    id
+    icon
+    title
+  }
+}
+
+fragment BlockFive on ComponentBlocksFive {
+  id
+  idHashtag
+  title
+  items {
+    id
+    title
+    summary
+    image {
+      ...Image
+    }
+    ctaButtonLink {
+      ...Link
+    }
+  }
+}
+
+fragment BlockSix on ComponentBlocksSix {
+  id
+  idHashtag
+  title
+  summary
+  ctaButtonLinkBlockSix: ctaButtonLink {
+    ...Link
+  }
+  items {
+    id
+    title
+    summary
+    image {
+      ...Image
+    }
+    ctaButtonLink {
+      ...Link
+    }
+  }
+}
+
+fragment BlockSeven on ComponentBlocksSeven {
+  id
+  idHashtag
+  title
+  summary
+  subtitle
+  ctaButtonLink {
+    ...Link
+  }
+  items {
+    id
+    date
+    link {
+      ...Link
+    }
+    image {
+      ...Image
+    }
+  }
+}

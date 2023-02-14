@@ -12,7 +12,7 @@ export type SEOData = {
   canonicalUrl?: string;
 };
 
-export default function SEO({
+export function SEO({
   siteName,
   title,
   description,

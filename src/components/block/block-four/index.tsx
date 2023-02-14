@@ -4,6 +4,7 @@ import clsx from 'clsx';
 export * from './mock';
 
 export type BlockFourProps = {
+  id?: string;
   className?: string;
   title: string;
   summary: string;
@@ -13,14 +14,17 @@ export type BlockFourProps = {
   }[];
 };
 
-export function BlockFour({ className, title, summary, items }: BlockFourProps) {
+export function BlockFour({ className, title, summary, items, id }: BlockFourProps) {
   return (
-    <div block-name="block-four" className={clsx(className, 'container')}>
+    <div id={id} block-name="block-four" className={clsx(className, 'container')}>
       <div
         dangerouslySetInnerHTML={{ __html: title }}
         className="text-display-lg-medium text-center font-primary"
       />
-      <p className="text-xl-regular text-summary font-primary mt-24 text-center">{summary}</p>
+      <div
+        className="text-xl-regular text-summary font-primary mt-24 text-center"
+        dangerouslySetInnerHTML={{ __html: summary }}
+      />
       <div className="mt-40 grid grid-cols-4 gap-36">
         {items.map((item, index) => {
           return (
@@ -32,7 +36,10 @@ export function BlockFour({ className, title, summary, items }: BlockFourProps) 
                 dangerouslySetInnerHTML={{ __html: item.icon }}
                 className="max-w-[68px] h-auto aspect-square"
               />
-              <p className="text-md-semibold font-primary text-summary mt-28">{item.title}</p>
+              <div
+                className="text-md-semibold font-primary text-summary mt-28"
+                dangerouslySetInnerHTML={{ __html: item.title }}
+              />
             </div>
           );
         })}

@@ -7,6 +7,7 @@ export * from './mock';
 
 export type BlockFiveProps = {
   className?: string;
+  id?: string;
   title: string;
   items: {
     title: string;
@@ -16,9 +17,9 @@ export type BlockFiveProps = {
   }[];
 };
 
-export function BlockFive({ className, title, items }: BlockFiveProps) {
+export function BlockFive({ className, title, items, id }: BlockFiveProps) {
   return (
-    <div block-name="block-five" className={clsx(className, 'py-120')}>
+    <div id={id} block-name="block-five" className={clsx(className, 'py-120')}>
       <div
         dangerouslySetInnerHTML={{ __html: title }}
         className="text-display-lg-medium text-gray-900 font-primary text-center"
@@ -30,8 +31,14 @@ export function BlockFive({ className, title, items }: BlockFiveProps) {
               key={index}
               className="bg-gray-50 p-36 pb-40 rounded-2xl col-span-1 w-full h-auto hover:shadow-lg transition-all"
             >
-              <p className="text-display-md-bold text-neutral-900 font-primary">{item.title}</p>
-              <p className="text-2l font-secondary mt-16 text-neutral-900">{item.summary}</p>
+              <div
+                className="text-display-md-bold text-neutral-900 font-primary"
+                dangerouslySetInnerHTML={{ __html: item.title }}
+              />
+              <div
+                className="text-2l font-secondary mt-16 text-neutral-900"
+                dangerouslySetInnerHTML={{ __html: item.summary }}
+              />
               <div className="aspect-square max-w-[256px] h-auto mt-16">
                 <img
                   alt={item.image.alternativeText || 'image-business'}

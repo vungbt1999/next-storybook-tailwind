@@ -4,15 +4,19 @@ import clsx from 'clsx';
 export * from './mock';
 
 export type BlockTwoProps = {
+  id?: string;
   className?: string;
   title: string;
   items: ImageObj[];
 };
 
-export function BlockTwo({ className, title, items }: BlockTwoProps) {
+export function BlockTwo({ className, title, items, id }: BlockTwoProps) {
   return (
-    <div block-name="block-two" className={clsx(className, 'pt-48')}>
-      <p className="text-xl-regular text-neutral-500 font-primary text-center">{title}</p>
+    <div id={id} block-name="block-two" className={clsx(className, 'pt-48')}>
+      <div
+        className="text-xl-regular text-neutral-500 font-primary text-center"
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
       <div className="flex items-center justify-center mt-24">
         {items.map((item, index) => {
           return (

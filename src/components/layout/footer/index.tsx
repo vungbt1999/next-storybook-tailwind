@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { Logo } from '@/components/common';
-import { LinkObj, SocialType } from '@/types';
+import { ImageObj, LinkObj, SocialType } from '@/types';
 import Link from 'next/link';
 import React from 'react';
 import { FooterNavigation, FooterNavigationProps } from './navigation';
@@ -10,6 +11,7 @@ export * from './mock';
 
 export type FooterProps = {
   logoUrl?: string;
+  logo?: ImageObj;
   title: string;
   navigation: FooterNavigationProps[];
   copyright: string;
@@ -19,6 +21,7 @@ export type FooterProps = {
 
 export function Footer({
   logoUrl = '/',
+  logo,
   title,
   navigation,
   socials,
@@ -38,9 +41,19 @@ export function Footer({
         <div className="container px-52">
           <div className="flex justify-between">
             <div className="mr-64">
-              <Link href={logoUrl}>
-                <Logo />
-              </Link>
+              <div className="w-fit">
+                <Link href={logoUrl}>
+                  {logo ? (
+                    <img
+                      src={logo.url}
+                      alt={logo.alternativeText || 'logo'}
+                      className="w-64 h-64"
+                    />
+                  ) : (
+                    <Logo />
+                  )}
+                </Link>
+              </div>
               <p className="max-w-[320px] w-[320px] text-md-regular text-gray-600 mt-32 font-primary">
                 {title}
               </p>
