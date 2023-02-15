@@ -73,12 +73,12 @@ const transformHeader = (data?: ComponentPageLayoutHeader): HeaderProps => {
 };
 
 const transformFooter = (data: ComponentPageLayoutFooter): FooterProps => {
-  const socials = data.social || [];
+  const socials = data.socials || [];
   const navigates = data.navigation || [];
 
   return {
     title: data.title || '',
-    copyright: data.copyright || '',
+    copyright: convertCopyRightText(data.copyright as string),
     subscribeForm: {
       title: data.subscribe?.title || '',
       subtitle: data.subscribe?.summary || '',
@@ -99,4 +99,10 @@ const transformSocials = (data: ComponentSharedSocialLink[]): SocialType[] => {
     socialType: item.socialType,
     link: transformLink(item.link as LinkFragment)
   }));
+};
+
+const convertCopyRightText = (txt?: string) => {
+  const pattern = '<<year>>';
+  const newTxt = txt || '© <<year>> DOS Labs. All rights reserved. Powered by DOS.';
+  return newTxt.replace(pattern, new Date().getFullYear().toString());
 };

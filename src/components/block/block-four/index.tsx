@@ -7,7 +7,7 @@ export type BlockFourProps = {
   id?: string;
   className?: string;
   title: string;
-  summary: string;
+  summary: string | null;
   items: {
     title: string;
     icon: string;
@@ -21,10 +21,12 @@ export function BlockFour({ className, title, summary, items, id }: BlockFourPro
         dangerouslySetInnerHTML={{ __html: title }}
         className="text-display-lg-medium text-center font-primary"
       />
-      <div
-        className="text-xl-regular text-summary font-primary mt-24 text-center"
-        dangerouslySetInnerHTML={{ __html: summary }}
-      />
+      {summary && (
+        <div
+          className="text-xl-regular text-summary font-primary mt-24 text-center"
+          dangerouslySetInnerHTML={{ __html: summary }}
+        />
+      )}
       <div className="mt-40 grid grid-cols-4 gap-36">
         {items.map((item, index) => {
           return (

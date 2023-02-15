@@ -8,7 +8,7 @@ export type BlockThreeProps = {
   id?: string;
   className?: string;
   title: string;
-  summary: string;
+  summary: string | null;
   items: CardBlockThree[];
 };
 
@@ -21,10 +21,12 @@ export function BlockThree({ className, title, summary, items, id }: BlockThreeP
       />
       <div className="grid grid-cols-12 gap-24 mt-24">
         <p className="col-span-2"></p>
-        <div
-          className="text-xl-regular text-summary font-primary col-span-8 text-center"
-          dangerouslySetInnerHTML={{ __html: summary }}
-        />
+        {summary && (
+          <div
+            className="text-xl-regular text-summary font-primary col-span-8 text-center"
+            dangerouslySetInnerHTML={{ __html: summary }}
+          />
+        )}
         <p className="col-span-2"></p>
       </div>
 
