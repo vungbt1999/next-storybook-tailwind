@@ -4,7 +4,7 @@ fragment BlockOne on ComponentBlocksOne {
   title
   summary
   iframeEmbed
-  ctaButtonBlockOne: ctaButtonLink {
+  ctaButtonBlockOne: ctaButtonLinks {
     ...Link
   }
 }

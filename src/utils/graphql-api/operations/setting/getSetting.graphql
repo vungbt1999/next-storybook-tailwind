@@ -27,7 +27,7 @@ query getSetting {
             inputPlaceholder
             ctaButtonText
           }
-          social {
+          socials {
             id
             socialType
             link {

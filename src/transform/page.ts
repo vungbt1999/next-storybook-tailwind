@@ -82,7 +82,7 @@ const toBlockOne = (block: BlockOneFragment): BlockOneProps => {
   return {
     id: block.idHashtag || block.id,
     title: block.title,
-    summary: block.summary,
+    summary: block.summary || null,
     ctaButtonLinks: (block.ctaButtonBlockOne || []).map((item) =>
       transformLink(item as LinkFragment)
     ),
@@ -104,7 +104,7 @@ const toBlockThree = (block: BlockThreeFragment): BlockThreeProps => {
   return {
     id: block.idHashtag || block.id,
     title: block.title,
-    summary: block.summary,
+    summary: block.summary || null,
     items: (block.itemsBlockThree || []).map((item) => ({
       title: item?.title || '',
       summary: item?.title || '',
@@ -119,7 +119,7 @@ const toBlockFour = (block: BlockFourFragment): BlockFourProps => {
   return {
     id: block.idHashtag || block.id,
     title: block.title,
-    summary: block.summary,
+    summary: block.summary || null,
     items: (block.items || []).map((item) => ({
       title: item?.title || '',
       icon: item?.icon || ''
@@ -144,12 +144,12 @@ const toBlockSix = (block: BlockSixFragment): BlockSixProps => {
   return {
     id: block.idHashtag || block.id,
     title: block.title,
-    summary: block.summary,
+    summary: block.summary || null,
     ctaButtonLink: transformLink(block.ctaButtonLinkBlockSix as LinkFragment),
 
     items: (block.items || []).map((item) => ({
       title: item?.title || '',
-      summary: item?.summary || '',
+      summary: item?.summary || null,
       ctaButtonLink: transformLink(item?.ctaButtonLink as LinkFragment),
       image: transformImageObj(item?.image as ImageFragment)
     }))
@@ -159,9 +159,9 @@ const toBlockSix = (block: BlockSixFragment): BlockSixProps => {
 const toBlockSeven = (block: BlockSevenFragment): BlockSevenProps => {
   return {
     id: block.idHashtag || block.id,
-    subtitle: block.subtitle,
+    subtitle: block.subtitle || null,
     title: block.title,
-    summary: block.summary,
+    summary: block.summary || null,
     ctaButtonLink: transformLink(block.ctaButtonLink as LinkFragment),
     items: (block.items || []).map((item) => ({
       image: transformImageObj(item?.image as ImageFragment),

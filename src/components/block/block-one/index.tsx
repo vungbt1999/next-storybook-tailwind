@@ -7,7 +7,7 @@ export * from './mock';
 export type BlockOneProps = {
   id?: string;
   title: string;
-  summary: string;
+  summary: string | null;
   ctaButtonLinks: LinkObj[];
   iframeEmbed: string;
   className?: string;
@@ -31,10 +31,12 @@ export function BlockOne({
 
         <div className="grid grid-cols-12 gap-24 mt-24">
           <p className="col-span-3"></p>
-          <div
-            className="font-primary text-summary text-xl-regular text-center col-span-6"
-            dangerouslySetInnerHTML={{ __html: summary }}
-          />
+          {summary && (
+            <div
+              className="font-primary text-summary text-xl-regular text-center col-span-6"
+              dangerouslySetInnerHTML={{ __html: summary }}
+            />
+          )}
           <p className="col-span-3"></p>
         </div>
 

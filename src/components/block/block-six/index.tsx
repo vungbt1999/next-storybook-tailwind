@@ -11,14 +11,14 @@ export * from './mock';
 export type BlockSixProps = {
   className?: string;
   title: string;
-  summary: string;
+  summary: string | null;
   ctaButtonLink: LinkObj;
   id?: string;
 
   items: {
     image: ImageObj;
     title: string;
-    summary: string;
+    summary: string | null;
     ctaButtonLink: LinkObj;
   }[];
 };
@@ -43,10 +43,12 @@ export function BlockSix({
             className="text-display-md-semibold text-gray-900 font-primary"
             dangerouslySetInnerHTML={{ __html: title }}
           />
-          <div
-            className="mt-20 font-primary text-xl-regular text-gray-600"
-            dangerouslySetInnerHTML={{ __html: summary }}
-          />
+          {summary && (
+            <div
+              className="mt-20 font-primary text-xl-regular text-gray-600"
+              dangerouslySetInnerHTML={{ __html: summary }}
+            />
+          )}
         </div>
 
         <Link href={ctaButtonLink.url} target={ctaButtonLink.target}>
@@ -97,10 +99,12 @@ export function BlockSix({
                     className="line-clamp-1 text-display-xs-semibold text-gray-900 font-primary"
                     dangerouslySetInnerHTML={{ __html: title }}
                   />
-                  <div
-                    className="line-clamp-2 mt-8 font-primary text-md-regular text-gray-600"
-                    dangerouslySetInnerHTML={{ __html: summary }}
-                  />
+                  {summary && (
+                    <div
+                      className="line-clamp-2 mt-8 font-primary text-md-regular text-gray-600"
+                      dangerouslySetInnerHTML={{ __html: summary }}
+                    />
+                  )}
                   <Link
                     href={item.ctaButtonLink.url}
                     target={item.ctaButtonLink.target}

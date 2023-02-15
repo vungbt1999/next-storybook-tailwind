@@ -7,9 +7,9 @@ export * from './mock';
 
 export type BlockSevenProps = {
   className?: string;
-  subtitle: string;
+  subtitle: string | null;
   title: string;
-  summary: string;
+  summary: string | null;
   items: {
     image: ImageObj;
     link: LinkObj;
@@ -31,18 +31,22 @@ export function BlockSeven({
 }: BlockSevenProps) {
   return (
     <div id={id} block-name="block-seven" className={clsx(className, 'container pb-96')}>
-      <div
-        className="font-primary text-button text-md-semibold text-center"
-        dangerouslySetInnerHTML={{ __html: subtitle }}
-      />
+      {subtitle && (
+        <div
+          className="font-primary text-button text-md-semibold text-center"
+          dangerouslySetInnerHTML={{ __html: subtitle }}
+        />
+      )}
       <div
         dangerouslySetInnerHTML={{ __html: title }}
         className="mt-12 text-display-md-semibold text-gray-900 font-primary text-center"
       />
-      <div
-        className="mt-20 font-primary text-xl-regular text-gray-600 text-center"
-        dangerouslySetInnerHTML={{ __html: summary }}
-      />
+      {summary && (
+        <div
+          className="mt-20 font-primary text-xl-regular text-gray-600 text-center"
+          dangerouslySetInnerHTML={{ __html: summary }}
+        />
+      )}
 
       <div className="mt-64 container grid grid-cols-3 gap-32 px-0">
         {items.map((item, index) => {
