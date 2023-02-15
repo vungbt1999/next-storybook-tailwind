@@ -33,15 +33,15 @@ export function Footer({
       layout-name="footer-layout"
       className="py-48 border-t-[5px] border-solid border-danger-500"
     >
-      <div className="container px-52">
+      <div className="container md:px-52">
         <FooterSubscribeForm {...subscribeForm} />
       </div>
 
-      <div className="mt-64 py-64 border-t border-solid border-neutral-300">
-        <div className="container px-52">
-          <div className="flex justify-between">
-            <div className="mr-64">
-              <div className="w-fit">
+      <div className="mt-48 md:mt-64 py-48 md:py-64 border-t border-solid border-neutral-300 mx-12 md:mx-0">
+        <div className="md:container md:px-52">
+          <div className="flex justify-between flex-col md:flex-row">
+            <div className="md:mr-64">
+              <div className="w-fit m-auto md:m-0">
                 <Link href={logoUrl}>
                   {logo ? (
                     <img
@@ -54,7 +54,7 @@ export function Footer({
                   )}
                 </Link>
               </div>
-              <p className="max-w-[320px] w-[320px] text-md-regular text-gray-600 mt-32 font-primary">
+              <p className="md:max-w-[320px] md:w-[320px] text-md-regular text-gray-600 mt-32 font-primary text-center md:text-start">
                 {title}
               </p>
             </div>
@@ -63,7 +63,7 @@ export function Footer({
         </div>
       </div>
 
-      <div className="container px-52">
+      <div className="mx-12 md:mx-0 md:container md:px-52">
         <FooterSocial items={socials} copyright={copyright} />
       </div>
     </div>

@@ -16,19 +16,27 @@ export function BlockThree({ className, title, summary, items, id }: BlockThreeP
   return (
     <div id={id} block-name="block-three" className={clsx(className, 'container')}>
       <div
-        className="text-display-lg-medium text-summary font-primary text-center"
+        className="text-display-md-medium md:text-display-lg-medium text-summary font-primary text-center"
         dangerouslySetInnerHTML={{ __html: title }}
       />
-      <div className="grid grid-cols-12 gap-24 mt-24">
-        <p className="col-span-2"></p>
-        {summary && (
+      {summary && (
+        <>
+          <div className="hidden md:grid grid-cols-12 gap-24 mt-24">
+            <p className="col-span-2"></p>
+            <div
+              className="text-xl-regular text-summary font-primary col-span-8 text-center"
+              dangerouslySetInnerHTML={{ __html: summary }}
+            />
+            <p className="col-span-2"></p>
+          </div>
+
+          {/** Show Summary Mobile */}
           <div
-            className="text-xl-regular text-summary font-primary col-span-8 text-center"
+            className="block md:hidden text-lg-regular text-summary font-primary text-center mt-24"
             dangerouslySetInnerHTML={{ __html: summary }}
           />
-        )}
-        <p className="col-span-2"></p>
-      </div>
+        </>
+      )}
 
       <div className="flex flex-wrap gap-48 mt-40">
         {items.map((item, index) => (

@@ -118,9 +118,9 @@ module.exports = {
     },
     fontFamily: {
       primary: "var(--font-primary)",
-      secondary: "var(--font-secondary, var(--font-primary))",
+      secondary: "var(--font-secondary)",
       tertiary:
-        "var(--font-tertiary, var(--font-secondary, var(--font-primary))",
+        "var(--font-tertiary)",
     },
     fontSize: {
       // TEXT
@@ -166,6 +166,13 @@ module.exports = {
           fontWeight: "700"
         }
       ],
+      'lg-regular': [
+        "18px",
+        {
+          lineHeight: "28px",
+          fontWeight: "400"
+        }
+      ],
       'lg-semibold': [
         "18px",
         {
@@ -189,11 +196,32 @@ module.exports = {
       ],
 
       // DISPLAY
+      'display-sm-bold': [
+        "30px",
+        {
+          lineHeight: "38px",
+          fontWeight: "700"
+        }
+      ],
+      'display-sm-semibold': [
+        "30px",
+        {
+          lineHeight: "38px",
+          fontWeight: "600"
+        }
+      ],
       'display-xs-semibold': [
         "24px",
         {
           lineHeight: "32px",
           fontWeight: "600"
+        }
+      ],
+      'display-md-medium': [
+        "36px",
+        {
+          lineHeight: "44px",
+          fontWeight: "500"
         }
       ],
       'display-md-semibold': [

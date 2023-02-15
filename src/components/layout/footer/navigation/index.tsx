@@ -9,11 +9,11 @@ export type FooterNavigationProps = {
 
 export function FooterNavigation({ navigation }: { navigation: FooterNavigationProps[] }) {
   return (
-    <div className="flex-1 flex justify-between">
+    <div className="flex-1 flex justify-between flex-wrap mt-64 md:mt-0 gap-32">
       {navigation.map((item, index) => {
         const navItems = item.items;
         return (
-          <div key={index} className="flex-1 mr-32 last:mr-0">
+          <div key={index} className="flex-1">
             <p className="text-sm-semibold text-gray-500 font-primary">{item.title}</p>
             <ul className="mt-16">
               {navItems.map((navItems, navIndex) => (

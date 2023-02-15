@@ -16,7 +16,7 @@ export function PageLayout({ children, header, footer }: PageLayoutProps) {
       </Head>
 
       <Header {...header} />
-      <div className="content-container pt-94">{children}</div>
+      <div className="content-container pt-64 md:pt-94">{children}</div>
       <Footer {...footer} />
     </Fragment>
   );

@@ -3,6 +3,8 @@ import { Button, Logo, RenderIcon } from '@/components/common';
 import { ImageObj, LinkObj } from '@/types';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { HeaderDesktop } from './desktop';
+import { HeaderMobile } from './mobile';
 export * from './mock';
 
 export type NavigateItemType = {
@@ -17,7 +19,7 @@ export type HeaderProps = {
   ctaButtonLink: LinkObj;
 };
 
-export function Header({ navigation, logoUrl = '/', ctaButtonLink, logo }: HeaderProps) {
+export function Header(props: HeaderProps) {
   const [isScroll, setIsScroll] = useState<boolean>(false);
 
   const listenScrollEvent = () => {
@@ -36,7 +38,7 @@ export function Header({ navigation, logoUrl = '/', ctaButtonLink, logo }: Heade
     <div
       layout-name="header-layout"
       id="header-layout"
-      className="w-screen h-94 fixed transition-all top-0 z-50"
+      className="w-screen h-64 md:h-94 fixed transition-all top-0 z-50"
       style={
         isScroll
           ? {
@@ -47,38 +49,8 @@ export function Header({ navigation, logoUrl = '/', ctaButtonLink, logo }: Heade
           : undefined
       }
     >
-      <div className="container h-full flex items-center justify-between">
-        <Link href={logoUrl}>
-          {logo ? (
-            <img src={logo.url} alt={logo.alternativeText || 'logo'} className="w-64 h-64" />
-          ) : (
-            <Logo />
-          )}
-        </Link>
-        <ul className="flex items-center">
-          {navigation.map((nav, index) => {
-            const item = nav.item;
-            return (
-              <Link
-                key={item.id || index}
-                href={item.url}
-                target={item.target}
-                className="mr-24 last:mr-0"
-              >
-                <li className="flex items-center text-md-medium font-primary text-neutral-900">
-                  {item.title}
-                  {nav.child && nav.child.length > 0 && (
-                    <RenderIcon name="chevron" className="!w-9 !h-[4.3px] text-info-900 ml-8" />
-                  )}
-                </li>
-              </Link>
-            );
-          })}
-        </ul>
-        <Button className="!px-48 !text-md-bold !rounded" color="danger">
-          {ctaButtonLink.title}
-        </Button>
-      </div>
+      <HeaderDesktop {...props} />
+      <HeaderMobile {...props} />
     </div>
   );
 }

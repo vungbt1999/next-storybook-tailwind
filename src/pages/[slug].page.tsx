@@ -1,27 +1,11 @@
-import Blocks, {
-  BlockFive,
-  blockFiveMock,
-  BlockFour,
-  blockFourMock,
-  BlockOne,
-  blockOneMock,
-  BlockSeven,
-  blockSevenMock,
-  BlockSix,
-  blockSixMock,
-  BlockThree,
-  blockThreeMock,
-  BlockTwo,
-  blockTwoMock
-} from '@/components/block';
+import Blocks from '@/components/block';
+import { withRevalidate } from '@/middleware/withRevalidate';
+import { transformPage, transformSEO } from '@/transform';
 import { getApiClient } from '@/utils/graphql-api';
 import { findPageIdBySlugLocale, notFound } from '@/utils/server';
+import clsx from 'clsx';
 import { GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
-import { Fragment } from 'react';
-import { transformSEO, transformPage } from '@/transform';
-import { withRevalidate } from '@/middleware/withRevalidate';
-import clsx from 'clsx';
 
 type Props = {
   page: ReturnType<typeof transformPage>;

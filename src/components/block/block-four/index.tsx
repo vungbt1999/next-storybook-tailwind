@@ -19,20 +19,20 @@ export function BlockFour({ className, title, summary, items, id }: BlockFourPro
     <div id={id} block-name="block-four" className={clsx(className, 'container')}>
       <div
         dangerouslySetInnerHTML={{ __html: title }}
-        className="text-display-lg-medium text-center font-primary"
+        className="text-display-md-medium md:text-display-lg-medium text-center font-primary"
       />
       {summary && (
         <div
-          className="text-xl-regular text-summary font-primary mt-24 text-center"
+          className="text-lg-regular md:text-xl-regular text-summary font-primary mt-24 text-center"
           dangerouslySetInnerHTML={{ __html: summary }}
         />
       )}
-      <div className="mt-40 grid grid-cols-4 gap-36">
+      <div className="mt-40 grid grid-cols-2 md:grid-cols-4 gap-16 md:gap-36">
         {items.map((item, index) => {
           return (
             <div
               key={index}
-              className="shadow-lg hover:shadow-md transition-all bg-[#F7F8FC] rounded-2xl p-48 flex flex-col items-center justify-center"
+              className="shadow-lg hover:shadow-md transition-all bg-[#F7F8FC] rounded-2xl py-24 px-12 md:p-48 flex flex-col items-center justify-center"
             >
               <div
                 dangerouslySetInnerHTML={{ __html: item.icon }}

@@ -17,12 +17,12 @@ export function BlockTwo({ className, title, items, id }: BlockTwoProps) {
         className="text-xl-regular text-neutral-500 font-primary text-center"
         dangerouslySetInnerHTML={{ __html: title }}
       />
-      <div className="flex items-center justify-center mt-24">
+      <div className="flex items-center justify-center mt-24 flex-wrap gap-64">
         {items.map((item, index) => {
           return (
             <div
               key={index}
-              className="mr-64 last:mr-0 relative w-[136px] max-w-[136] h-auto flex items-center justify-center"
+              className="relative w-[136px] max-w-[136px] min-w-[136px] flex items-center justify-center"
             >
               <img
                 src={item.url}

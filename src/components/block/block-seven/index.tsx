@@ -48,7 +48,7 @@ export function BlockSeven({
         />
       )}
 
-      <div className="mt-64 container grid grid-cols-3 gap-32 px-0">
+      <div className="mt-64 container grid grid-cols-1 md:grid-cols-3 gap-32 px-0">
         {items.map((item, index) => {
           return (
             <div key={index} className="col-span-1 w-full h-auto shadow-lg rounded-lg">
@@ -79,9 +79,9 @@ export function BlockSeven({
         <Link
           href={ctaButtonLink.url}
           target={ctaButtonLink.target}
-          className="flex justify-center mt-64"
+          className="flex justify-center mt-64 w-full md:w-auto"
         >
-          <Button size="xl" variant="outline" color="danger">
+          <Button size="xl" variant="outline" color="danger" className="w-full md:w-auto">
             {ctaButtonLink.title}
           </Button>
         </Link>

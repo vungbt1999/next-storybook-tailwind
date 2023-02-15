@@ -23,18 +23,31 @@ export function CardBlockThree({
     <div
       block-name="block-three"
       component-name={`card-block-three-${styleVariant}`}
-      className={clsx('bg-gray-100 rounded-2xl p-48 pb-0 hover:shadow-lg transition-all', {
-        'w-full flex': styleVariant === 'style_2',
-        'flex-1 min-w-[calc(50%-24px)]': styleVariant === 'style_1'
-      })}
+      className={clsx(
+        'bg-gray-100 rounded-2xl py-24 px-16 md:p-48 md:pb-0 hover:shadow-lg transition-all',
+        {
+          'w-full flex': styleVariant === 'style_2',
+          'w-full flex md:flex-1 md:min-w-[calc(50%-24px)]': styleVariant === 'style_1'
+        }
+      )}
     >
       <div
-        className={clsx({
+        className={clsx('flex justify-center flex-col items-center w-full md:w-auto md:block', {
           'flex-1': styleVariant === 'style_2'
         })}
       >
-        <p className="text-display-md-semibold font-primary text-black">{title}</p>
-        <p className="mt-8 text-xl-regular text-neutral-700">{summary}</p>
+        <RenderImageView
+          variant={styleVariant}
+          image={image}
+          className="block md:hidden max-w-[192px] h-auto aspect-square m-auto"
+        />
+
+        <p className="text-display-sm-semibold md:text-display-md-semibold font-primary text-black text-center md:text-start">
+          {title}
+        </p>
+        <p className="mt-8 text-lg-regular md:text-xl-regular text-neutral-700 font-primary text-center md:text-start">
+          {summary}
+        </p>
 
         <div
           className={clsx({
@@ -49,8 +62,8 @@ export function CardBlockThree({
             variant={styleVariant}
             image={image}
             className={clsx({
-              hidden: styleVariant === 'style_2',
-              block: styleVariant === 'style_1'
+              'hidden md:hidden': styleVariant === 'style_2',
+              'hidden md:block': styleVariant === 'style_1'
             })}
           />
         </div>
@@ -60,8 +73,8 @@ export function CardBlockThree({
         variant={styleVariant}
         image={image}
         className={clsx({
-          hidden: styleVariant === 'style_1',
-          block: styleVariant === 'style_2'
+          'hidden md:hidden': styleVariant === 'style_1',
+          'hidden md:block': styleVariant === 'style_2'
         })}
       />
     </div>

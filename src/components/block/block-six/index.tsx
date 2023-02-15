@@ -36,22 +36,22 @@ export function BlockSix({
   const navigationNextRef = useRef(null);
 
   return (
-    <div id={id} block-name="block-six" className={clsx(className, 'bg-gray-50 py-96')}>
+    <div id={id} block-name="block-six" className={clsx(className, 'bg-gray-50 py-48 md:py-96')}>
       <div className="container flex justify-between items-start">
         <div className="flex-1">
           <div
-            className="text-display-md-semibold text-gray-900 font-primary"
+            className="text-display-sm-semibold md:text-display-md-semibold text-gray-900 font-primary text-center md:text-start"
             dangerouslySetInnerHTML={{ __html: title }}
           />
           {summary && (
             <div
-              className="mt-20 font-primary text-xl-regular text-gray-600"
+              className="mt-20 font-primary text-xl-regular text-gray-600 text-center md:text-start"
               dangerouslySetInnerHTML={{ __html: summary }}
             />
           )}
         </div>
 
-        <Link href={ctaButtonLink.url} target={ctaButtonLink.target}>
+        <Link href={ctaButtonLink.url} target={ctaButtonLink.target} className="hidden md:block">
           <Button variant="outline" color="danger" className="px-28">
             {ctaButtonLink.title}
           </Button>
@@ -59,7 +59,7 @@ export function BlockSix({
       </div>
 
       <Swiper
-        slidesPerView={3}
+        // slidesPerView={3}
         spaceBetween={30}
         freeMode={true}
         pagination={{
@@ -70,7 +70,7 @@ export function BlockSix({
           nextEl: navigationNextRef.current
         }}
         modules={[FreeMode, Navigation]}
-        className="mt-64 relative"
+        className="mt-64 relative px-12 md:px-0"
         onInit={(swiper) => {
           // @ts-ignore
           // eslint-disable-next-line no-param-reassign
@@ -80,6 +80,14 @@ export function BlockSix({
           swiper.params.navigation.nextEl = navigationNextRef.current;
           swiper.navigation.init();
           swiper.navigation.update();
+        }}
+        breakpoints={{
+          768: {
+            slidesPerView: 1
+          },
+          769: {
+            slidesPerView: 3
+          }
         }}
       >
         {items.map((item, index) => {
@@ -121,10 +129,10 @@ export function BlockSix({
           );
         })}
 
-        <div ref={navigationPrevRef} className="slider-nav absolute left-36">
+        <div ref={navigationPrevRef} className="slider-nav absolute left-12 md:left-36">
           <RenderIcon name="previous" className="!w-20 !h-20 text-summary" />
         </div>
-        <div ref={navigationNextRef} className="slider-nav absolute right-36">
+        <div ref={navigationNextRef} className="slider-nav absolute right-12 md:right-36">
           <RenderIcon name="next" className="!w-20 !h-20 text-summary" />
         </div>
       </Swiper>

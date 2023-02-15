@@ -19,12 +19,12 @@ export type BlockFiveProps = {
 
 export function BlockFive({ className, title, items, id }: BlockFiveProps) {
   return (
-    <div id={id} block-name="block-five" className={clsx(className, 'py-120')}>
+    <div id={id} block-name="block-five" className={clsx(className, 'py-48 md:py-120')}>
       <div
         dangerouslySetInnerHTML={{ __html: title }}
-        className="text-display-lg-medium text-gray-900 font-primary text-center"
+        className="text-display-md-medium md:text-display-lg-medium text-gray-900 font-primary text-center"
       />
-      <div className="mt-[73px] max-w-[976px] grid grid-cols-2 gap-56 m-auto">
+      <div className="mt-24 md:mt-[73px] max-w-full md:max-w-[976px] grid grid-cols-1 md:grid-cols-2 gap-56 m-auto">
         {items.map((item, index) => {
           return (
             <div

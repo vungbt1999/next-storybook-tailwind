@@ -21,9 +21,12 @@ export function FooterSubscribeForm({
   const [email, setEmail] = useState<string>('');
 
   return (
-    <div className="flex justify-between">
-      <div className="flex-1 mr-32">
-        <p className="text-xl-semibold text-gray-900 font-primary">{title}</p>
+    <div className="flex justify-between flex-col md:flex-row">
+      <div className="flex-1 md:mr-32 w-full md:w-auto">
+        <div
+          className="text-xl-semibold text-gray-900 font-primary"
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
         <span className="text-md-regular text-gray-600 font-primary mt-8">{subtitle}</span>
       </div>
       <form
@@ -34,14 +37,15 @@ export function FooterSubscribeForm({
             onSubmit && onSubmit({ email: q, isChecked });
           }
         }}
+        className="w-full md:w-auto mt-32 md:mt-0"
       >
-        <div>
+        <div className="flex flex-col md:flex-row">
           <input
             ref={inputRef}
             placeholder={inputPlaceholder}
             type="email"
             onChange={(e) => setEmail(e.target.value)}
-            className="bg-white border border-solid border-gray-300 shadow-xs rounded-lg py-10 px-14 text-md-regular text-gray-500 outline-none placeholder:text-md-regular mr-16 w-[269px] h-44"
+            className="bg-white border border-solid border-gray-300 shadow-xs rounded-lg py-10 px-14 text-md-regular text-gray-500 outline-none placeholder:text-md-regular md:mr-16 w-full md:w-[269px] h-44"
           />
           <Button
             color="danger"
@@ -49,7 +53,7 @@ export function FooterSubscribeForm({
             disabled={email.length <= 0 || !isChecked}
             type="submit"
             aria-label="subscribe-submit-button"
-            className="h-44"
+            className="h-44 mt-16 md:mt-0"
           >
             {ctaButtonText}
           </Button>

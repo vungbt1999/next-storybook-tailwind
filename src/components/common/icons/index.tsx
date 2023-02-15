@@ -4,6 +4,7 @@ import { Chevron } from './chevron';
 import Facebook from './facebook';
 import Git from './git';
 import LinkIn from './link-in';
+import Nav from './nav';
 import Next from './next';
 import PeaceHand from './peace-hand';
 import Previous from './previous';
@@ -26,7 +27,8 @@ export type IconName =
   | 'twitter'
   | 'arrowUp'
   | 'previous'
-  | 'next';
+  | 'next'
+  | 'nav';
 
 export type IconsType = Record<IconName, Icon>;
 
@@ -57,6 +59,9 @@ export const Icons: IconsType = {
   },
   next: (props: IconProps) => {
     return <Next {...props} />;
+  },
+  nav: (props: IconProps) => {
+    return <Nav {...props} />;
   }
 };
 
