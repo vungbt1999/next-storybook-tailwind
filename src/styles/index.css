@@ -47,3 +47,39 @@ iframe {
 .swiper-button-disabled svg {
   opacity: 0.5;
 }
+
+.nav_item:hover .sub_nav_header {
+  /* transform: translateX(0); */
+  display: block;
+}
+
+.sub_nav_header {
+  display: none;
+  height: 0;
+  transition: all 0.3s ease;
+  animation: rotateMenu 400ms ease-in-out forwards;
+  transform-origin: top center;
+  height: fit-content;
+}
+
+.sub_nav_header::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: 0;
+  left: 0;
+  height: 30px;
+  width: 100%;
+}
+
+@keyframes rotateMenu {
+  0% {
+    transform: rotateX(-90deg);
+  }
+  70% {
+    transform: rotateX(20deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}

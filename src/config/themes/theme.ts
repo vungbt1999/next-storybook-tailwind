@@ -3,10 +3,10 @@ import { ThemeConfig } from './types';
 export const themeConfig: ThemeConfig = {
   colors: {
     primary: {
-      default: '#1BD760',
+      default: '#E84142',
       _100: '#ECFFF3',
       _300: '#79FFAA',
-      _500: '#1BD760',
+      _500: '#E84142',
       _700: '#00A93E',
       _900: '#009336'
     },

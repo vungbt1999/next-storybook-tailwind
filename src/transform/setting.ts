@@ -5,6 +5,7 @@ import {
   ComponentPageLayoutHeader,
   ComponentSharedSocialLink,
   GetSettingQuery,
+  ImageFragment,
   LinkFragment
 } from '@/utils/graphql-api/generated';
 import { transformImageObj, transformLink } from '.';
@@ -54,6 +55,7 @@ const transformHeader = (data?: ComponentPageLayoutHeader): HeaderProps => {
       const navLink = (item?.links || []).map((navLinkItem) =>
         transformLink(navLinkItem as LinkFragment)
       );
+      const subNavs = item?.subnavs || [];
 
       if (navLink.length > 0) {
         listNav.push({
@@ -61,7 +63,16 @@ const transformHeader = (data?: ComponentPageLayoutHeader): HeaderProps => {
             ...navLink[0],
             title: navTitle
           },
-          child: navLink.slice(1)
+          subNav: subNavs.map((subNavItem) => ({
+            title: subNavItem?.title || '',
+            style: subNavItem?.style || 'style_1',
+            items: (subNavItem?.items || []).map((sbNavItem) => ({
+              link: transformLink(sbNavItem?.link),
+              summary: sbNavItem?.summary || null,
+              image: sbNavItem?.image ? transformImageObj(sbNavItem?.image as ImageFragment) : null,
+              icon: sbNavItem?.icon || null
+            }))
+          }))
         });
       }
     });

@@ -14,6 +14,21 @@ query getSetting {
             links {
               ...Link
             }
+            subnavs {
+              title
+              id
+              items {
+                link {
+                  ...Link
+                }
+                image {
+                  ...Image
+                }
+                icon
+                summary
+              }
+              style
+            }
           }
           ctaButtonLink {
             ...Link

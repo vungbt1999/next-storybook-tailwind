@@ -5,11 +5,12 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { HeaderDesktop } from './desktop';
 import { HeaderMobile } from './mobile';
+import { NavHeaderItemProps } from './nav';
 export * from './mock';
 
 export type NavigateItemType = {
   item: LinkObj;
-  child?: LinkObj[];
+  subNav?: NavHeaderItemProps[];
 };
 
 export type HeaderProps = {
